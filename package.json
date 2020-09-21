@@ -1,0 +1,11 @@
+{
+  "name": "arcadb",
+  "version": "0.0.1",
+  "description": "Powerfull JSON Database",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "arcadb",
+  "license": "GPL-3.0"
+}
