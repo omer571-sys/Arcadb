@@ -15,7 +15,7 @@ Neden arcadb kullanmalıyım? : Arcadb kullanıcı ve sunucu verilerini 2 dosyay
 ```js
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const ArcaClient = require("./src/arcadb/index.js");
+const ArcaClient = require("arcadb");
 
 client.on("ready", () => {
 	console.log("Hello, Discord!");
