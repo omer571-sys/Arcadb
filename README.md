@@ -41,6 +41,6 @@ client.on("message", message => {
 });
 ```
 
-# İletişim
+# İletişim / Contact
 
 Discord **maven#0571**
