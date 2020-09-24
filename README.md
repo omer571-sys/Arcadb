@@ -31,9 +31,9 @@ client.on("message", message => {
   // How to rest all data? // Nasıl tüm verileri sıfırlarız?
    ArcaClient.requestRemove(message.member); // User data // Kullanıcı verisi
   // How to get data? // Nasıl veri getiririz?
-   ArcaClient.requestGet(``${message.guild.id}_save`, message.member); // User data // Kullanıcı verisi
+   ArcaClient.requestGet(`${message.guild.id}_save`, message.member); // User data // Kullanıcı verisi
   // How to check data? // Nasıl veriyi kontrol ederiz?
-    ArcaClient.requestRun(``${message.guild.id}_save`, message.member); // User data // Kullanıcı verisi
+    ArcaClient.requestRun(`${message.guild.id}_save`, message.member); // User data // Kullanıcı verisi
   // How to list all data? // Tüm verileri nasıl listeleriz?
   ArcaClient.requestAll(message.member); // User data // Kullanıcı verisi
   
