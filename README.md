@@ -44,3 +44,7 @@ client.on("message", message => {
 # İletişim / Contact
 
 <img src="https://graviton.netlify.app/assets/discord.svg" width="20px">Discord **maven#0571**
+
+<img src="https://graviton.netlify.app/assets/discord.svg" width="20px"><a href="https://discord.gg/z4rsGXb"> Destek Sunucusu (Arcadb - Support Server)</a>
+
+<a href="https://www.instagram.com/qfurkan_demircan/">İnstagram</a> **qfurkan_demircan**
