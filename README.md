@@ -1,6 +1,6 @@
 # Powerfull JSON Database
 
-<br>Yüklemek için!</br>
+<br>To install / Yüklemek için!</br>
 
 ```
 npm i arcadb [Coming soon / Yakında!]
