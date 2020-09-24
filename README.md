@@ -1,4 +1,4 @@
-# Arcadb : Powerfull JSON Database
+# Powerfull JSON Database
 
 <br>Yüklemek için!</br>
 
@@ -6,11 +6,11 @@
 npm i arcadb *Yakında
 ```
 
-# Bilgilendirme
+# About and Informations / Hakkında
 
 Neden arcadb kullanmalıyım? : Arcadb kullanıcı ve sunucu verilerini 2 dosyaya ayırarak verilerinizin silinmesi patlaması gibi durumları engellemekte
 
-# Kullanım (NodeJS)
+# Usage / Kullanım (NodeJS)
 
 ```js
 const Discord = require("discord.js");
