@@ -43,4 +43,4 @@ client.on("message", message => {
 
 # İletişim / Contact
 
-Discord **maven#0571**
+<img src="https://graviton.netlify.app/assets/discord.svg" width="20px">Discord **maven#0571**
