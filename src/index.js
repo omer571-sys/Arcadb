@@ -96,16 +96,3 @@ module.exports.requestRemove = function(filter) {
 		ClassGuild({});
 	} else { new CreateError("Looks like something went wrong! @#filter"); };
 }
-
-module.exports.requestPush = function(data, filter) {
-	if(!data) { new CreateError("Looks like something went wrong! @#data"); };
-	if(!filter) { new CreateError("Looks like something went wrong! @#filter"); };
-
-	if (filter instanceof GuildMember) {
-		MemberClassRequest[data].push(value);
-		ClassMember(MemberClassRequest);
-	} else if (filter instanceof Guild) {
-		GuildClassRequest[data].push(value);
-		ClassGuild(GuildClassRequest);
-	} else { new CreateError("Looks like something went wrong! @#filter"); };	
-}
