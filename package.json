@@ -6,6 +6,6 @@
   "scripts": {
     "test": "node test.js"
   },
-  "author": "arcadb",
+  "author": "maven0571",
   "license": "GPL-3.0"
 }
