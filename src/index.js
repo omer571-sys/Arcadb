@@ -1,76 +1,72 @@
 const { GuildMember, Guild } = require("discord.js");
 const { CreateError } = require("./arcadb/TypeError.js");
 const { readFileSync, writeFileSync } = require("fs");
-const { users, guilds } = { users: `${__dirname}/arcadb/users.json`, guilds: `${__dirname}/arcadb/guilds.json` };
 
-const MemberClass = () => JSON.parse(readFileSync(users, "utf8"));
-const GuildClass = () => JSON.parse(readFileSync(guilds, "utf8"));
-const ClassMember = (data) => writeFileSync(users, JSON.stringify(data, null, 2));
-const ClassGuild = (data) => writeFileSync(guilds, JSON.stringify(data, null, 2));
-
-const ClassMemberRequest = MemberClass();
-const GuildClassRequest = GuildClass();
+const MemberClass = () => JSON.parse(readFileSync(`${__dirname}/arcadb/users.json`, "utf8")); // Oku
+const GuildClass = () => JSON.parse(readFileSync(`${__dirname}/arcadb/guilds.json`, "utf8")); // Oku
+const ClassMember = (data) => writeFileSync(users, JSON.stringify(data, null, 2)); // Yaz Sunucu
+const ClassGuild = (data) => writeFileSync(guilds, JSON.stringify(data, null, 2)); // Yaz Kullanıcı
 
 const MemberClassRequest = MemberClass();
-const ClassGuildRequest = GuildClass();
+const GuildClassRequest = GuildClass();
 
 module.exports.requestSet = function(data, value, filter) {
-	if(!data) { new CreateError("Kaydetme hatası! #data"); };
-	if(!value) { new CreateError("Kaydetme hatası! #value"); };
-	if(!filter) { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };
+	if(!data) { new CreateError("Looks like something went wrong! @#data"); };
+	if(!value) { new CreateError("Looks like something went wrong! @#value"); };
+	if(!filter) { new CreateError("Looks like something went wrong! @#filter"); };
 
 	if (filter instanceof GuildMember) {
-		ClassMemberRequest[data] = value;
-		ClassMember(ClassMemberRequest);
+		MemberClassRequest[data] = value;
+		ClassMember(MemberClassRequest);
 	} else if (filter instanceof Guild) {
 		GuildClassRequest[data] = value;
 		ClassGuild(GuildClassRequest);
-	} else { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };
+	} else { new CreateError("Looks like something went wrong! @#filter"); };
 }
 
 module.exports.requestAdd = function(data, value, filter) {
-	if(!data) { new CreateError("Kaydetme hatası! #data"); };
-	if(!value) { new CreateError("Kaydetme hatası! #value"); };
-	if(!filter) { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };	
+	if(!data) { new CreateError("Looks like something went wrong! @#data"); };
+	if(!value) { new CreateError("Looks like something went wrong! @#value"); };
+	if(!filter) { new CreateError("Looks like something went wrong! @#filter"); };	
 
 	if (filter instanceof GuildMember) {
-		if(!MemberClassRequest[data] || MemberClassRequest[data] == undefined) { new CreateError("Kaydetme hatası! #none"); };
-		if(isNaN(MemberClassRequest[data])) { if(!value) { new CreateError("Kaydetme hatası! #typeof"); }; };
-		ClassMemberRequest[data] += value;
-		ClassMember(ClassMemberRequest);
+		if(!MemberClassRequest[data] || MemberClassRequest[data] == undefined) { new CreateError("Looks like something went wrong! @#none"); };
+		if(isNaN(MemberClassRequest[data])) { if(!isNaN(value)) { new CreateError("Looks like something went wrong! @#typeof"); }; };
+		MemberClassRequest[data] += value;
+		ClassMember(MemberClassRequest);
 	} else if (filter instanceof Guild) {
-		if(!MemberClassRequest[data] || MemberClassRequest[data] == undefined) { new CreateError("Kaydetme hatası! #none"); };
-		if(isNaN(MemberClassRequest[data])) { if(!value) { new CreateError("Kaydetme hatası! #typeof"); }; };
+		if(!GuildClassRequest[data] || GuildClassRequest[data] == undefined) { new CreateError("Kaydetme hatası! #none"); };
+		if(isNaN(GuildClassRequest[data])) { if(!isNaN(value)) { new CreateError("Looks like something went wrong! @#typeof"); }; };
 		GuildClassRequest[data] += value;
 		ClassGuild(GuildClassRequest);
-	} else { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };
+	} else { new CreateError("Looks like something went wrong! @#filter"); };
 }
 
-module.exports.request = function(data, filter) {
-	if(!data) { new CreateError("Yoklama hatası! #data"); };
-	if(!filter) { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };
+module.exports.requestRun = function(data, filter) {
+	if(!data) { new CreateError("Looks like something went wrong! @#data"); };
+	if(!filter) { new CreateError("Looks like something went wrong! @#filter"); };
 
 	if (filter instanceof GuildMember) {
 		return MemberClassRequest[data] ? true : false;
 	} else if (filter instanceof Guild) {
-		return ClassGuildRequest[data] ? true : false;
-	} else { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };
+		return GuildClassRequest[data] ? true : false;
+	} else { new CreateError("Looks like something went wrong! @#filter"); };
 }
 
 module.exports.requestGet = function(data, filter) {
-	if(!data) { new CreateError("Yoklama hatası! #data"); };
-	if(!filter) { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };
+	if(!data) { new CreateError("Looks like something went wrong! @#data"); };
+	if(!filter) { new CreateError("Looks like something went wrong! @#filter"); };
 
 	if (filter instanceof GuildMember) {
 		return MemberClassRequest[data] ? MemberClassRequest[data] : null;
 	} else if (filter instanceof Guild) {
-		return ClassGuildRequest[data] ? ClassGuildRequest[data] : null;
-	} else { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };
+		return GuildClassRequest[data] ? GuildClassRequest[data] : null;
+	} else { new CreateError("Looks like something went wrong! @#filter"); };
 }
 
 module.exports.requestDelete = function(data, filter) {
-	if(!data) { new CreateError("Silme hatası! #data"); };
-	if(!filter) { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };
+	if(!data) { new CreateError("Looks like something went wrong! @#data"); };
+	if(!filter) { new CreateError("Looks like something went wrong! @#filter"); };
 
 	if (filter instanceof GuildMember) {
 		delete ClassMemberRequest[data];
@@ -78,25 +74,38 @@ module.exports.requestDelete = function(data, filter) {
 	} else if (filter instanceof Guild) {
 		delete GuildClassRequest[data];
 		ClassGuild(GuildClassRequest);
-	} else { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };	
+	} else { new CreateError("Looks like something went wrong! @#filter"); };	
 }
 
 module.exports.requestAll = function(filter) {
-	if(!filter) { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };
+	if(!filter) { new CreateError("Looks like something went wrong! @#filter"); };
 
 	if (filter instanceof GuildMember) {
 		return ClassMemberRequest;
 	} else if (filter instanceof Guild) {
 		return GuildClassRequest;
-	} else { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };	
+	} else { new CreateError("Looks like something went wrong! @#filter"); };	
 }
 
 module.exports.requestRemove = function(filter) {
-	if(!filter) { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };
+	if(!filter) { new CreateError("Looks like something went wrong! @#filter"); };
 
 	if (filter instanceof GuildMember) {
 		ClassMember({});
 	} else if (filter instanceof Guild) {
 		ClassGuild({});
-	} else { new CreateError("Filtreleme hatası! #GuildMember / #Guild"); };
+	} else { new CreateError("Looks like something went wrong! @#filter"); };
+}
+
+module.exports.requestPush = function(data, filter) {
+	if(!data) { new CreateError("Looks like something went wrong! @#data"); };
+	if(!filter) { new CreateError("Looks like something went wrong! @#filter"); };
+
+	if (filter instanceof GuildMember) {
+		MemberClassRequest[data].push(value);
+		ClassMember(MemberClassRequest);
+	} else if (filter instanceof Guild) {
+		GuildClassRequest[data].push(value);
+		ClassGuild(GuildClassRequest);
+	} else { new CreateError("Looks like something went wrong! @#filter"); };	
 }
