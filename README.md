@@ -47,4 +47,4 @@ client.on("message", message => {
 
 <img src="https://graviton.netlify.app/assets/discord.svg" width="20px"><a href="https://discord.gg/z4rsGXb"> Destek Sunucusu (Arcadb - Support Server)</a>
 
-<a href="https://www.instagram.com/qfurkan_demircan/">İnstagram</a> **qfurkan_demircan**
+<img src="https://www.instagram.com/static/images/ico/xxxhdpi_launcher.png/9fc4bab7565b.png" width="20px"> <a href="https://www.instagram.com/qfurkan_demircan/">İnstagram</a> **qfurkan_demircan**
