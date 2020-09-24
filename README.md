@@ -3,7 +3,7 @@
 <br>Yüklemek için!</br>
 
 ```
-npm i arcadb *Yakında
+npm i arcadb [Coming soon / Yakında!]
 ```
 
 # About and Informations / Hakkında
