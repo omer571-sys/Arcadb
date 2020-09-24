@@ -8,7 +8,7 @@ npm i arcadb *Yakında
 
 # About and Informations / Hakkında
 
-Neden arcadb kullanmalıyım? : Arcadb kullanıcı ve sunucu verilerini 2 dosyaya ayırarak verilerinizin silinmesi patlaması gibi durumları engellemekte
+Neden <a href="https://github.com/maven0571/Arcadb">**Arcadb**</a>? : Arcadb JSON Dosyasını fazla yormamak için Kullanıcı ve Sunucu verilerini 2 JSON Dosyasına ayırır bu şekilde veri çekerken gecikme yaşamazsınız ayrıca olabilicek bir ihtimalide engellemekte bu ihtimal verilerinizin tutulduğu JSON Dosyasının patlamasıdır (Bozulmasıdır) sanırsam böyle bir şey olmasını istemezsiniz.
 
 # Usage / Kullanım (NodeJS)
 
